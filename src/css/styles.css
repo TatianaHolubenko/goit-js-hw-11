@@ -16,7 +16,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* Форма */ /* Форма */ /* Форма */ /* Форма */ /* Форма */ /* Форма */ /* Форма */ /* Форма */ /* Форма */
+/* Форма */
 
 .picture-search-form {
   display: flex;
@@ -81,18 +81,12 @@
   background-color: #6c8cff;
 }
 
-.hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 .message {
   margin: 0;
   text-align: center;
 }
 
-/* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */ /* Галерея  */
+/* Галерея  */
 .gallery {
   display: flex;
   width: 1128px;
@@ -107,7 +101,7 @@
 .gallery-link {
   display: block;
   width: 360px;
-  /* height: 200px; */
+
   flex-shrink: 0;
 }
 
