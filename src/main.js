@@ -6,15 +6,18 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector('.picture-search-form');
 const searchInput = document.querySelector('.picture-search-name');
-const loaderContainer = document.querySelector('.loader-message');
+const loaderContainer = document.querySelector('.loader-container');
+const loader = document.querySelector('.loader');
 
 const API_KEY = '41764451-f0ee5e8d00846e21c9f97a054';
 
 function showLoader() {
   loaderContainer.style.display = 'block';
+  loader.style.display = 'block';
 }
 function hideLoader() {
   loaderContainer.style.display = 'none';
+  loader.style.display = 'none';
 }
 
 let requestParams = {
@@ -33,7 +36,7 @@ function searchImages(query) {
 
   fetch(`https://pixabay.com/api/?${searchParams}`)
     .then(response => {
-      hideLoader();
+      // hideLoader();
 
       if (!response.ok) {
         throw new Error(
