@@ -6,15 +6,15 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector('.picture-search-form');
 const searchInput = document.querySelector('.picture-search-name');
-const loader = document.querySelector('.loader');
+const loaderContainer = document.querySelector('.loader-message');
 
 const API_KEY = '41764451-f0ee5e8d00846e21c9f97a054';
 
 function showLoader() {
-  loader.style.display = 'block';
+  loaderContainer.style.display = 'block';
 }
 function hideLoader() {
-  loader.style.display = 'none';
+  loaderContainer.style.display = 'none';
 }
 
 let requestParams = {
