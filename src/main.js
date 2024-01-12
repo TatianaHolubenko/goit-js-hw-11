@@ -36,7 +36,7 @@ function searchImages(query) {
 
   fetch(`https://pixabay.com/api/?${searchParams}`)
     .then(response => {
-      // hideLoader();
+      hideLoader();
 
       if (!response.ok) {
         throw new Error(
