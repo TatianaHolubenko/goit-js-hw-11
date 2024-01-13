@@ -130,7 +130,7 @@
 }
 
 .loader-container {
-  margin: 0 auto;
+  text-align: center;
   display: none;
   border-right: 4px solid transparent;
   box-sizing: border-box;

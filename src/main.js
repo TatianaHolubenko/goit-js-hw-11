@@ -7,17 +7,14 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const searchForm = document.querySelector('.picture-search-form');
 const searchInput = document.querySelector('.picture-search-name');
 const loaderContainer = document.querySelector('.loader-container');
-const loader = document.querySelector('.loader');
 
 const API_KEY = '41764451-f0ee5e8d00846e21c9f97a054';
 
 function showLoader() {
   loaderContainer.style.display = 'block';
-  loader.style.display = 'block';
 }
 function hideLoader() {
   loaderContainer.style.display = 'none';
-  loader.style.display = 'none';
 }
 
 let requestParams = {
@@ -49,6 +46,16 @@ function searchImages(query) {
     .then(({ hits }) => {
       const gallery = document.querySelector('.gallery');
 
+      if (hits.length === 0) {
+        iziToast.error({
+          title: 'Error',
+          message:
+            'Sorry, there are no images matching your search query. Please try again!',
+          position: 'topRight',
+        });
+        return;
+      }
+
       const lightbox = new SimpleLightbox('.gallery a', {
         captionDelay: 250,
         captionsData: 'alt',
@@ -57,7 +64,7 @@ function searchImages(query) {
 
       gallery.innerHTML = '';
 
-      gallery.innerHTML = hits.reduce(
+      const galleryHtml = hits.reduce(
         (html, image) =>
           html +
           `<a class="gallery-link" href="${image.largeImageURL}">
@@ -87,7 +94,7 @@ function searchImages(query) {
         </a>`,
         ''
       );
-
+      gallery.insertAdjacentHTML('beforeend', galleryHtml);
       lightbox.refresh();
     })
     .catch(error => {
@@ -104,4 +111,5 @@ searchForm.addEventListener('submit', event => {
 
   const searchQuery = searchInput.value.trim();
   searchImages(searchQuery);
+  searchForm.reset();
 });
